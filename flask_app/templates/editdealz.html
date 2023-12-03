@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Deal</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/style.css">
+</head>
+<body>
+    
+    <div>
+
+        <div class = "container3">
+
+            <h2> Edit {{dealz[0].model}} </h2>
+
+            <div>
+
+                <a href = '/dashboard'> <button> Dashboard </button> </a>
+
+                <a href = '/clear_session'> <button> Logout </button> </a>
+
+            </div>
+
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <ul class = "flash"> {{message}} </ul>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+        <form class = "edit" action = '/editing' method = 'post'>
+
+            <div>
+
+                <label for = "price"> Price: </label>
+
+                <input type = "number" name = "price" value = "{{dealz[0].price}}">
+
+            </div>
+
+            <div>
+
+                <label for = "model"> Model: </label>
+
+                <input type = "text" name = "model" value = "{{dealz[0].model}}">
+
+            </div>
+
+            <div>
+
+                <label for = "make"> Make: </label>
+
+                <input type = "text" name = "make" value = "{{dealz[0].make}}">
+
+            </div>
+
+            <div>
+
+                <label for = "year"> Year: </label>
+
+                <input type = "number" name = "year" value = "{{dealz[0].year}}">
+
+            </div>
+
+            <div>
+
+                <label for = "description"> Description: </label>
+
+                <textarea name = "description" rows = "3" cols = "30">{{dealz[0].description}}</textarea>
+
+            </div>
+
+            <input type = "submit" value = "Update">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

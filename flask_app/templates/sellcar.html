@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Put a Car Up for Sale</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/style.css">
+
+</head>
+<body>
+    
+    <div>
+
+        <div class = "container2">
+
+            <h2> Put Car Up For Sale </h2>
+
+            <div>
+
+                <a href = '/dashboard'> <button> Dashboard </button> </a>
+
+                <a href = '/clear_session'> <button> Logout </button> </a>
+
+            </div>
+            
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <ul class = "flash"> {{message}} </ul>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+        <form class = "sell" action = '/create' method = 'post'>
+
+            <div>
+
+                <label for = "price"> Price: </label>
+
+                <input type = "number" name = "price">
+
+            </div>
+
+            <div>
+
+                <label for = "model"> Model: </label>
+
+                <input type = "text" name = "model">
+
+            </div>
+
+            <div>
+
+                <label for = "make"> Make: </label>
+
+                <input type = "text" name = "make">
+
+            </div>
+
+            <div>
+
+                <label for = "year"> Year: </label>
+
+                <input type = "number" name = "year">
+
+            </div>
+
+            <div>
+
+                <label for = "description"> Description: </label>
+
+                <textarea name = "description" rows = "3" cols = "30"></textarea>
+
+            </div>
+
+            <input type = "submit" value = "Add">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

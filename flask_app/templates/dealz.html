@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealz</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/style.css">
+</head>
+<body>
+    
+    <div class = "box">
+
+        <div class = "container1">
+
+            <h2> Welcome to Car Dealz, {{first_name}} </h2>
+
+            <a href = '/clear_session'> <button> Logout </button></a>
+
+        </div>
+
+        <h3> Cars for Sale </h3>
+
+        <div class = "table">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th> Model </th>
+
+                        <th> Year </th>
+
+                        <th> Seller </th>
+
+                        <th> Actions </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% if dealz %}
+
+                        {% for deal in dealz %}
+
+                            <tr>
+
+                                <td> {{deal.model}} </td>
+
+                                <td> {{deal.year}} </td>
+
+                                <td> {{deal.seller[0].first_name}} </td>
+
+                                {% if users_id == deal.user_id %}
+
+                                <td> <a href = '/edit/{{deal.id}}'> edit </a> <a href = '/delete/{{deal.id}}'> delete </a> </td>
+
+                                {% else %}
+
+                                <td> <a href = '/show/{{deal.id}}'> view </a> </td>
+
+                                {% endif %}
+
+                            </tr>
+
+                        {% endfor %}
+
+                </tbody>
+
+            </table>
+
+                    {% endif %}
+
+        </div>
+
+        <a href = '/new' class = "add"> <button> Add a Car </button> </a>
+
+    </div>
+
+</body>
+
+</html>

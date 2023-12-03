@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specific Dealz</title>
+    <link rel = "stylesheet" type = "text/css" href = "../static/style.css">
+
+</head>
+<body>
+    
+    <div>
+
+        <a href = '/dashboard'> <button> Dashboard </button> </a>
+
+        <a href = '/clear_session'> <button> Logout </button> </a>
+
+    </div>
+
+    <div>
+
+        <form action = '/sold/{{dealz.id}}' method = 'post'>
+
+            <div>
+
+                <h3> {{dealz[0].price}} </h3>
+
+                <h3> Model: {{dealz[0].model}} </h3>
+
+                <h3> Make: {{dealz[0].make}} </h3>
+
+                <h3> Year: {{dealz[0].year}} </h3>
+
+                <h3> Description: {{dealz[0].description}} </h3>
+
+            </div>
+
+            <div>
+
+                <h5> Seller: {{dealz[0].seller[0].first_name}} {{dealz[0].seller[0].last_name}} </h5>
+
+                <input type = "submit" value = "Purchase">
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
